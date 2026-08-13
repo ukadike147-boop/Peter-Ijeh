@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 
 const TopSellers = () => {
+  const [sellers, setSellers] = useState([]);
+  useEffect(() => {
+  axios
+    .get(
+      "https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers"
+    )
+    .then((response) => {
+      setSellers(response.data);
+      console.log(response.data);
+    });
+}, []);
   return (
     <section id="section-popular" className="pb-5">
       <div className="container">
