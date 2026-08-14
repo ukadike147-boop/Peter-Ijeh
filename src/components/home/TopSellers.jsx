@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
 
 const TopSellers = () => {
   const [sellers, setSellers] = useState([]);
@@ -12,7 +11,6 @@ const TopSellers = () => {
     )
     .then((response) => {
       setSellers(response.data);
-      console.log(response.data);
     });
 }, []);
   return (
@@ -27,24 +25,25 @@ const TopSellers = () => {
           </div>
           <div className="col-md-12">
             <ol className="author_list">
-              {new Array(12).fill(0).map((_, index) => (
-                <li key={index}>
-                  <div className="author_list_pp">
-                    <Link to="/author">
-                      <img
-                        className="lazy pp-author"
-                        src={AuthorImage}
-                        alt=""
-                      />
-                      <i className="fa fa-check"></i>
-                    </Link>
-                  </div>
-                  <div className="author_list_info">
-                    <Link to="/author">Monica Lucas</Link>
-                    <span>2.1 ETH</span>
-                  </div>
-                </li>
-              ))}
+              {sellers.map((seller) => (
+  <li key={seller.id}>
+    <div className="author_list_pp">
+      <Link to="/author">
+        <img
+          className="lazy pp-author"
+          src={seller.authorImage}
+          alt=""
+        />
+        <i className="fa fa-check"></i>
+      </Link>
+    </div>
+
+    <div className="author_list_info">
+      <Link to="/author">{seller.authorName}</Link>
+      <span>{seller.price} ETH</span>
+    </div>
+  </li>
+))}
             </ol>
           </div>
         </div>
