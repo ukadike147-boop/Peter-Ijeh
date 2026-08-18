@@ -2,9 +2,6 @@ import Countdown from "react-countdown";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
-
 const ExploreItems = () => {
   const [exploreitems, setexploreitems] = useState([]);
 useEffect(() => {
@@ -72,16 +69,29 @@ function filterItems(filter) {
                 <div className="nft__item_buttons">
                   <button>Buy Now</button>
                   <div className="nft__item_share">
-                    <h4>Share</h4>
-                    <a href="" target="_blank" rel="noreferrer">
-                      <i className="fa fa-facebook fa-lg"></i>
-                    </a>
-                    <a href="" target="_blank" rel="noreferrer">
-                      <i className="fa fa-twitter fa-lg"></i>
-                    </a>
-                    <a href="">
-                      <i className="fa fa-envelope fa-lg"></i>
-                    </a>
+                    <div className="nft__item_share">
+  <h4>Share</h4>
+
+  <a
+    href="https://www.facebook.com/"
+    target="_blank"
+    rel="noreferrer"
+  >
+    <i className="fa fa-facebook fa-lg"></i>
+  </a>
+
+  <a
+    href="https://twitter.com/"
+    target="_blank"
+    rel="noreferrer"
+  >
+    <i className="fa fa-twitter fa-lg"></i>
+  </a>
+
+  <a href="mailto:">
+    <i className="fa fa-envelope fa-lg"></i>
+  </a>
+</div>
                   </div>
                 </div>
               </div>

@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
-
 const HotCollections = () => {
   const [collections, setCollections] = useState([]);
 
@@ -31,8 +28,8 @@ useEffect(() => {
             key={collection.id}>
               <div className="nft_coll">
                 <div className="nft_wrap">
-                  <Link to="/item-details">
-                    <img src={collection.nftImage}></img></Link>
+                  <Link to="/item-details"></Link>
+                    <img src={collection.nftImage} alt="" />
                 </div>
                 <div className="nft_coll_pp">
                   <Link to="/author">
