@@ -46,11 +46,7 @@ function filterItems(filter) {
         
           <div className="nft__item">
             <div className="author_list_pp">
-              <Link
-                to="/author"
-                data-bs-toggle="tooltip"
-                data-bs-placement="top"
-              >
+              <Link to={`/author/${exploreItem.authorId}`}>
                 <img className="lazy" src={exploreItem.authorImage} alt="" />
                 <i className="fa fa-check"></i>
               </Link>
@@ -95,7 +91,7 @@ function filterItems(filter) {
                   </div>
                 </div>
               </div>
-              <Link to="/item-details">
+              <Link to={`/item-details/${exploreItem.nftId}`}>
                 <img src={exploreItem.nftImage} className="lazy nft__item_preview" alt="" />
               </Link>
             </div>

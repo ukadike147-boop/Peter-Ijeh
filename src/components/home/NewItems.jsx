@@ -29,12 +29,7 @@ useEffect(() => {
             key={newItem.id}>
               <div className="nft__item">
                 <div className="author_list_pp">
-                  <Link
-                    to="/author"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Creator: Monica Lucas"
-                  >
+                  <Link to={`/author/${newItem.authorId}`}>
                     <img className="lazy" src={newItem.authorImage} alt="" />
                     <i className="fa fa-check"></i>
                   </Link>
@@ -80,7 +75,7 @@ useEffect(() => {
                     </div>
                   </div>
 
-                  <Link to={`/item-details/$newItem.nftId}`}>
+                  <Link to={`/item-details/${newItem.nftId}`}>
                     <img
                       src={newItem.nftImage}
                       className="lazy nft__item_preview"

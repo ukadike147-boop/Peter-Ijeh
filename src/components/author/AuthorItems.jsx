@@ -22,7 +22,10 @@ useEffect(() => {
               <div className="nft__item">
                 <div className="author_list_pp">
                   <Link to="">
-                    <img className="lazy" src={authorItem.authorImage} alt="" />
+                    <img
+  className="lazy"
+  src={authoritems.authorImage}
+  alt=""/>
                     <i className="fa fa-check"></i>
                   </Link>
                 </div>
@@ -59,10 +62,9 @@ useEffect(() => {
                   </div>
                   <Link to={`/item-details/${authorItem.nftId}`}>
                     <img
-                      src={authoritems.authorImage}
-                      className="lazy nft__item_preview"
-                      alt=""
-                    />
+  src={authorItem.nftImage}
+  className="lazy nft__item_preview"
+  alt=""/>
                   </Link>
                 </div>
                 <div className="nft__item_info">

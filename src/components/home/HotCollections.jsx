@@ -28,11 +28,12 @@ useEffect(() => {
             key={collection.id}>
               <div className="nft_coll">
                 <div className="nft_wrap">
-                  <Link to="/item-details"></Link>
-                    <img src={collection.nftImage} alt="" />
+                  <Link to={`/item-details/${collection.nftId}`}>
+                  <img src={collection.nftImage} alt="" />
+                   </Link>
                 </div>
                 <div className="nft_coll_pp">
-                  <Link to="/author">
+                  <Link to={`/author/${collection.authorId}`}>
                     <img className="lazy pp-coll" src={collection.authorImage} alt="" />
                   </Link>
                   <i className="fa fa-check"></i>

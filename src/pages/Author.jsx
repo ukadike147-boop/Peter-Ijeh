@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
 import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
-
 const Author = () => {
   const { authorId } = useParams();
+  const [author, setAuthor] = useState({});
+  useEffect(() => {
+  axios
+    .get(
+      `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`
+    )
+    .then((response) => {
+      setAuthor(response.data);
+    });
+}, [authorId]);
   return  (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
@@ -26,16 +35,16 @@ const Author = () => {
                 <div className="d_profile de-flex">
                   <div className="de-flex-col">
                     <div className="profile_avatar">
-                      <img src={AuthorImage} alt="" />
+                      <img src={author.authorImage} alt="" />
 
                       <i className="fa fa-check"></i>
                       <div className="profile_name">
                         <h4>
-                          Monica Lucas
-                          <span className="profile_username">@monicaaaa</span>
-                          <span id="wallet" className="profile_wallet">
-                            UDHUHWudhwd78wdt7edb32uidbwyuidhg7wUHIFUHWewiqdj87dy7
-                          </span>
+                          {author.authorName}
+         <span className="profile_username">@{author.tag}</span>
+         <span id="wallet" className="profile_wallet">
+          {author.address}
+         </span>
                           <button id="btn_copy" title="Copy Text">
                             Copy
                           </button>
@@ -45,7 +54,9 @@ const Author = () => {
                   </div>
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
-                      <div className="profile_follower">573 followers</div>
+                      <div className="profile_follower">
+                     {author.followers} followers
+                      </div>
                       <Link to="#" className="btn-main">
                         Follow
                       </Link>
